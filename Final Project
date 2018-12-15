@@ -1,0 +1,40 @@
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            double originalTuition = 6000; // hold tuition cost
+            double tuitionIncrease=0;             // hold tuition increase  
+            const double interestRate = .02;    //hold interest rate 
+            //first line in list box so it doesnt repeat
+            tuitionListBox.Items.Add("Year" + "\t" + "Tuition"); 
+
+            for (int year = 1; year <= 5; year++)
+            {
+                if (year >= 1)
+                {   // get increase in tuition
+                    tuitionIncrease = originalTuition * interestRate; 
+                    // calculate the tuition when it compounds upon itself
+                    originalTuition = tuitionIncrease + originalTuition;
+                }
+
+
+
+
+
+
+                // display under first item in list box 
+                tuitionListBox.Items.Add(year + "\t" + originalTuition.ToString("c"));
+
+
+
+
+            }
+        }
+    }
+
+}
